@@ -1,1 +1,40 @@
-<p>Adding games coming soon!</p>
+<div class="add-game-container">
+  <form [formGroup]="addForm">
+    <div class="row">
+      <h4>
+        <mat-icon>games</mat-icon> Add Game
+      </h4>
+    </div>
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Platform</mat-label>
+        <input matInput formControlName="platform" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Genre</mat-label>
+        <input matInput formControlName="genre" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Progress</mat-label>
+        <input matInput formControlName="progress" />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <button class="space" mat-stroked-button color="primary" size="small" (click)="addGames()">
+          Save
+        </button>
+        <button class="space" mat-stroked-button color="primary" size="small" (click)="addForm.reset()">
+          Reset
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
