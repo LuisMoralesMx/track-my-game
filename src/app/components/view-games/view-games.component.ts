@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef, ViewChild } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
-import { Observable, of } from "rxjs";
+import { MatTableDataSource } from "@angular/material/table";
 import { GAMES_LIST_MOCK } from "src/app/mocks/games-list.mock";
 import { Games } from "src/app/models/games";
 
@@ -14,14 +14,21 @@ export class ViewGamesComponent implements OnInit {
 
   constructor(private dialog: MatDialog) {}
 
-  gameList!: Observable<Games[]>;
+  dataSource!: MatTableDataSource<Games>;
+  gameList: Games[] = GAMES_LIST_MOCK;
   displayedColumns: string[] = ["name", "platform", "genre", "progress"];
 
   ngOnInit(): void {
-    this.gameList = of(GAMES_LIST_MOCK);
+    this.dataSource = new MatTableDataSource<Games>(GAMES_LIST_MOCK);
   }
 
   openDialog(templateRef: TemplateRef<any>) {
     this.dialog.open(templateRef);
+  }
+
+  addGame = (event: any) => {
+    this.gameList.push(event)
+    this.dataSource = new MatTableDataSource<Games>(this.gameList);
+    this.dialog.closeAll();
   }
 }

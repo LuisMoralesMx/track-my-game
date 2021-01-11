@@ -1,10 +1,10 @@
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
   <img width="50" alt="Track My Game" src="../assets/icon.png" />
-  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <button mat-button [matMenuTriggerFor]="menu" data-cy="menu">Menu</button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="/">Home</button>
-    <button mat-menu-item routerLink="/view-games-component">Game List</button>
+    <button mat-menu-item routerLink="/" data-cy="menu-home">Home</button>
+    <button mat-menu-item routerLink="/view-games-component" data-cy="menu-game-list">Game List</button>
   </mat-menu>
 </div>
 

@@ -1,4 +1,4 @@
-<div class="add-game-container">
+<div class="add-game-container" data-cy="add-game-container">
   <form [formGroup]="addForm">
     <div class="row">
       <h4>
@@ -6,32 +6,45 @@
       </h4>
     </div>
     <div class="row">
-      <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput formControlName="name" />
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Platform</mat-label>
-        <input matInput formControlName="platform" />
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Genre</mat-label>
-        <input matInput formControlName="genre" />
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Progress</mat-label>
-        <input matInput formControlName="progress" />
-      </mat-form-field>
+      <div class="col-12">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" data-cy="name" />
+        </mat-form-field>
+      </div>
     </div>
     <div class="row">
-      <div class="col-6">
-        <button class="space" mat-stroked-button color="primary" size="small" (click)="addGames()">
+      <div class="col-12">
+        <mat-form-field>
+          <mat-label>Platform</mat-label>
+          <input matInput formControlName="platform" data-cy="platform" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <mat-form-field>
+          <mat-label>Genre</mat-label>
+          <input matInput formControlName="genre" data-cy="genre" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <mat-form-field>
+          <mat-label>Progress</mat-label>
+          <input matInput formControlName="progress" data-cy="progress" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <button class="space" mat-stroked-button color="primary" size="small" data-cy="add-game-button"
+          (click)="addGames()">
           Save
         </button>
-        <button class="space" mat-stroked-button color="primary" size="small" (click)="addForm.reset()">
+        <button class="space" mat-stroked-button color="primary" size="small" data-cy="reset-game-button"
+          (click)="addForm.reset()">
           Reset
         </button>
       </div>

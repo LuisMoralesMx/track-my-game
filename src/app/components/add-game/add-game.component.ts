@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
@@ -7,6 +7,8 @@ import { FormBuilder, FormGroup } from "@angular/forms";
   styleUrls: ["./add-game.component.scss"],
 })
 export class AddGameComponent implements OnInit {
+  @Output() addGame = new EventEmitter<any>();
+
   addForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
@@ -21,6 +23,6 @@ export class AddGameComponent implements OnInit {
   }
 
   addGames: any = () => {
-    console.log(this.addForm.value);
+    this.addGame.emit(this.addForm.value);
   };
 }
